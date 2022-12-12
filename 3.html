@@ -44,21 +44,38 @@
 
 
         btnMessage.addEventListener('click', () => {
-            if (inputMessage.value== ""){return}
+            if (inputMessage.value == "") {
+                return
+            }
             let message = String(inputMessage.value);
             inputMessage.value = '';
             writeMessage(message, outputStyle);
             websocket.send(message);
         })
 
+        const error = () => {
+            writeToChat('Невозможно получить ваше местоположение');
+        }
 
+        const success = (position) => {
+            console.log('position', position);
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            writeMessage(`Широта: ${latitude} °, Долгота: ${longitude} °`);
+            writeMessage(
+                `<a href="https://www.openstreetmap.org/#map=18/${latitude}/${longitude}" target="_blank">Ссылка на карту</a>`
+            );
+        }
 
+        btnGeo.addEventListener("click", () => {
 
-
-
-
-
-
+            if (!navigator.geolocation) {
+                writeMessage('Geolocation не поддерживается вашим браузером');
+            } else {
+                writeMessage('Определение местоположения…');
+                navigator.geolocation.getCurrentPosition(success, error);
+            }
+        });
     </script>
 </body>
 

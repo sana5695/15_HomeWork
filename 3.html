@@ -11,16 +11,54 @@
 
 <body>
     <div class="main">
-        <div class="top-main">
-            <input class="messege" placeholder="Write messege" required>
-            <button>Send</button>
+        <div class="main-top">
+            <input class="message" type="text" placeholder="Write message" required>
+            <button class="btn-send">Send</button>
+            <button class="btn-geo">GEO</button>
         </div>
-        <div class="bottom-main">
+        <div class="main-bottom" id="output">
 
         </div>
     </div>
     <script>
-        const websocket = new WebSocket('wss://echo-ws-service.herokuapp.com/');
+        const websocket = new WebSocket('wss://echo-ws-service.herokuapp.com');
+        const btnMessage = document.querySelector('.btn-send');
+        const btnGeo = document.querySelector('.btn-geo');
+        const inputMessage = document.querySelector('.message');
+        const output = document.getElementById('output')
+        const outputStyle = 'outputStyle'
+        const inputStyle = 'inputStyle'
+
+        function writeMessage(message, style) {
+            let pre = document.createElement("div");
+            pre.className = style;
+            pre.style.wordWrap = "break-down";
+            pre.innerHTML = message;
+            output.appendChild(pre);
+        }
+
+        websocket.onmessage = (evt) => {
+            writeMessage(evt.data, inputStyle)
+        }
+
+
+
+        btnMessage.addEventListener('click', () => {
+            if (inputMessage.value== ""){return}
+            let message = String(inputMessage.value);
+            inputMessage.value = '';
+            writeMessage(message, outputStyle);
+            websocket.send(message);
+        })
+
+
+
+
+
+
+
+
+
     </script>
 </body>
 

@@ -1,4 +1,4 @@
-.button{
+.button {
     height: 80px;
     width: 200px;
     color: black;
@@ -7,15 +7,92 @@
     background-size: 200% auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, .1);
     min-width: 100px;
-  font-family: inherit;
-  appearance: none;
-  border: 0;
-  font-size: 1rem;
-  cursor: pointer;
+    font-family: inherit;
+    appearance: none;
+    border: 0;
+    font-size: 1rem;
+    cursor: pointer;
     padding: 0px;
 }
 
-.btn{
-    
+.btn {
+
     padding: auto;
 }
+
+.btn-send,
+.btn-geo {
+    height: 50px;
+    width: 100px;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    background-color: rgb(211, 211, 211);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    min-width: 100px;
+    font-family: inherit;
+    appearance: none;
+    border: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0px;
+}
+
+.message {
+    height: 50px;
+    width: 400px;
+    color: black;
+    border-radius: 10px;
+    background-color: rgb(199, 199, 199);
+    background-size: 200% auto;
+    min-width: 100px;
+    font-family: inherit;
+    appearance: none;
+    border: 0;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0px;
+}
+
+.main {
+    display: block;
+    width: 700px;
+    padding: 25px;
+    background-color:rgb(53, 53, 53)
+}
+
+.main-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.main-bottom {
+    display: block;
+    padding: 25px;
+    background-color: rgb(177, 177, 177);
+    
+}
+
+.outputStyle, .inputStyle{
+line-break: anywhere;
+display: block;
+width: fit-content;
+max-width: 300px;
+min-height: 25px;
+border: 2px solid rgb(0, 0, 0);
+padding: 3px 10px;
+background-color: aliceblue;
+}
+
+.inputStyle{
+    
+    margin-left: 0px;
+    margin-right: auto;
+}
+
+.outputStyle{
+    margin-left: auto;
+    margin-right: 0px;
+}
+
